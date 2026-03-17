@@ -8,7 +8,7 @@
 
 Bienvenido al repositorio de mi portfolio personal. Este proyecto es una web estática diseñada con una estética de interfaz de línea de comandos (CLI) o "Terminal Hacker", construida para destacar mi perfil como Junior Web Developer y Administrador de Sistemas.
 
-🔗 **[Ver el Portfolio en vivo aquí](https://tu-usuario.github.io/tu-repo/)** *(Acuérdate de cambiar este enlace por el tuyo real de GitHub Pages)*
+🔗 **[Ver el Portfolio en vivo aquí]([https://tu-usuario.github.io/tu-repo/](https://hakkai30.github.io/PORTAFOLIO/#about))** 
 
 ---
 
