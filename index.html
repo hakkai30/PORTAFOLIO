@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robin_OS | Terminal Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="boot-screen" class="d-flex flex-column">
+        <div class="boot-container">
+            <pre class="ascii-art cmd-green">
+  _____   ____  ____ _____ _   _ 
+ |  __ \ / __ \|  _ \_   _| \ | |
+ | |__) | |  | | |_) || | |  \| |
+ |  _  /| |  | |  _ < | | | . ` |
+ | | \ \| |__| | |_) || |_| |\  |
+ |_|  \_\____/|____/_____|_| \_|
+            </pre>
+            <div id="boot-text-container" class="mb-3"></div>
+            <div id="boot-progress-wrapper" style="display:none; margin-top: 20px;">
+                <span class="boot-label text-muted">LOADING MODULES: [</span>
+                <span id="boot-progress-bar" class="cmd-green"></span>
+                <span id="boot-progress-percent" class="cmd-green">0%</span>
+                <span class="text-muted">]</span>
+            </div>
+            <div class="boot-cursor cmd-green mt-2">_</div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg fixed-top terminal-nav">
+        <div class="container">
+            <a class="navbar-brand fw-bold cmd-green font-monospace" href="#about">root@ROBIN:~#</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-list cmd-green fs-2"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-4">
+                    <li class="nav-item"><a class="nav-link cmd-text" href="#about">/about</a></li>
+                    <li class="nav-item"><a class="nav-link cmd-text" href="#skills">/skills</a></li>
+                    <li class="nav-item"><a class="nav-link cmd-text" href="#education">/education</a></li>
+                    <li class="nav-item"><a class="nav-link cmd-text" href="#experience">/experience</a></li>
+                    <li class="nav-item"><a class="btn btn-cmd-outline btn-sm mt-1 px-3" href="#contact">EXECUTE_CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section d-flex align-items-center" id="about">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="badge border border-success cmd-green bg-black mb-3 px-3 py-2">
+                        <i class="bi bi-circle-fill text-danger me-2 blink-icon"></i> SYS_STATUS: ONLINE
+                    </span>
+                    <h1 class="display-3 fw-bold mb-3 text-white">> Robin <br><span class="cmd-green">Madamba_</span></h1>
+                    <h2 class="h5 cmd-text mb-4">Junior Web Developer & Systems Administrator</h2>
+                    
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <span class="badge border border-secondary text-light py-2 px-3 rounded-0 bg-dark"><i class="bi bi-geo-alt"></i> Barcelona, Spain</span>
+                        <span class="badge border border-secondary text-light py-2 px-3 rounded-0 bg-dark"><i class="bi bi-envelope"></i> robsgm30@gmail.com</span>
+                        <span class="badge border border-secondary text-light py-2 px-3 rounded-0 bg-dark"><i class="bi bi-telephone"></i> 655301619</span>
+                    </div>
+
+                    <div class="d-flex gap-3">
+                        <a href="#contact" class="btn btn-cmd px-4 py-2">INIT_COMMS</a>
+                        <a href="https://linkedin.com/in/robin-govina-madamba/" target="_blank" class="btn btn-cmd-outline px-4 py-2"><i class="bi bi-linkedin"></i> LINKEDIN</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="terminal-window">
+                        <div class="terminal-header d-flex align-items-center px-3 py-2">
+                            <span class="mx-auto font-monospace cmd-text small">summary.txt</span>
+                        </div>
+                        <div class="terminal-body p-4 font-monospace small cmd-text">
+                            <div class="mb-3"><span class="cmd-green">root@robin:~/profile</span> $ cat summary.txt</div>
+                            <div id="typewriter-text" class="lh-lg text-white">
+                                Highly motivated Junior Web Developer and current student of Web Application Development. I possess a strong technical foundation in C#, .NET Framework, and SQL databases. My background in customer service has equipped me with excellent communication and problem-solving skills, which I now apply to building efficient software solutions. I am eager to contribute to a professional development team while continuing to refine my skills in JavaScript, PHP, and Version Control (Git).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="skills" class="py-5">
+            <div class="container">
+                <h2 class="display-5 fw-bold mb-5 border-bottom border-success pb-3 d-inline-block text-white">SYS_<span class="cmd-green">SKILLS</span></h2>
+                <div class="row g-4">
+                    <div class="col-md-4"><div class="card h-100 p-3"><div class="card-body">
+                        <h3 class="h5 cmd-green">> Backend</h3>
+                        <p class="cmd-text mt-3">.NET Core, PHP, C#, Python 3, .NET Framework</p>
+                    </div></div></div>
+                    <div class="col-md-4"><div class="card h-100 p-3"><div class="card-body">
+                        <h3 class="h5 cmd-green">> Frontend</h3>
+                        <p class="cmd-text mt-3">HTML5, CSS3, JavaScript, XML</p>
+                    </div></div></div>
+                    <div class="col-md-4"><div class="card h-100 p-3"><div class="card-body">
+                        <h3 class="h5 cmd-green">> Database</h3>
+                        <p class="cmd-text mt-3">MySQL, SQL Server, PHPMyAdmin</p>
+                    </div></div></div>
+                    <div class="col-md-6"><div class="card h-100 p-3"><div class="card-body">
+                        <h3 class="h5 cmd-green">> Systems & Networking</h3>
+                        <p class="cmd-text mt-3">Apache 2.4, Windows Server, Ubuntu Server, IP Protocol, Cisco Packet Tracer</p>
+                    </div></div></div>
+                    <div class="col-md-6"><div class="card h-100 p-3"><div class="card-body">
+                        <h3 class="h5 cmd-green">> Tools & Languages</h3>
+                        <p class="cmd-text mt-3">Git, GitHub, XAMPP <br><br><span class="text-white">LANGUAGES:</span> Spanish (Native), Catalan (C1), English (B2)</p>
+                    </div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-5">
+            <div class="container">
+                <h2 class="display-5 fw-bold mb-5 border-bottom border-success pb-3 d-inline-block text-white">SYS_<span class="cmd-green">EDUCATION</span></h2>
+                
+                <h3 class="h5 cmd-text mb-4">./official_education.sh</h3>
+                <div class="row g-4 mb-5">
+                    <div class="col-md-4"><div class="card h-100 p-3"><div class="card-body">
+                        <span class="badge border border-success cmd-green bg-black mb-3 rounded-0">2024 - Present</span>
+                        <h4 class="h5 text-white">Web App Development (DAW)</h4>
+                        <h6 class="cmd-text mb-3">ETP Xavier</h6>
+                        <p class="small text-muted">Specializing in Full Stack development with a focus on C# and .NET environments.</p>
+                    </div></div></div>
+                    <div class="col-md-4"><div class="card h-100 p-3"><div class="card-body">
+                        <span class="badge border border-secondary text-muted bg-black mb-3 rounded-0">2019 - 2021</span>
+                        <h4 class="h5 text-white">Network Systems Admin (ASIR)</h4>
+                        <h6 class="cmd-text mb-3">Stucom Centre d'Estudis</h6>
+                        <p class="small text-muted">Focused on network infrastructure, server management (Windows/Ubuntu), and security.</p>
+                    </div></div></div>
+                    <div class="col-md-4"><div class="card h-100 p-3"><div class="card-body">
+                        <span class="badge border border-secondary text-muted bg-black mb-3 rounded-0">2016 - 2019</span>
+                        <h4 class="h5 text-white">Technological Baccalaureate</h4>
+                        <h6 class="cmd-text mb-3">Escola Vedruna Gràcia</h6>
+                        <p class="small text-muted">Strong analytical foundation in mathematics, physics, and technical drawing.</p>
+                    </div></div></div>
+                </div>
+
+                <h3 class="h5 cmd-text mb-4">./openwebinars_certs.sh</h3>
+                <div class="row g-3 mb-5">
+                    <div class="col-md-4"><div class="card h-100 p-2"><div class="card-body">
+                        <h5 class="h6 text-white">> Python 3: Avanzada</h5><p class="small cmd-green mb-0">20 hours</p>
+                    </div></div></div>
+                    <div class="col-md-4"><div class="card h-100 p-2"><div class="card-body">
+                        <h5 class="h6 text-white">> Python desde cero</h5><p class="small cmd-green mb-0">12 hours</p>
+                    </div></div></div>
+                    <div class="col-md-4"><div class="card h-100 p-2"><div class="card-body">
+                        <h5 class="h6 text-white">> Servidor Web Apache 2.4</h5><p class="small cmd-green mb-0">12 hours</p>
+                    </div></div></div>
+                    <div class="col-md-4"><div class="card h-100 p-2"><div class="card-body">
+                        <h5 class="h6 text-white">> Fundamentos de JavaScript</h5><p class="small cmd-green mb-0">8 hours</p>
+                    </div></div></div>
+                    <div class="col-md-4"><div class="card h-100 p-2"><div class="card-body">
+                        <h5 class="h6 text-white">> SQL Server desde Cero</h5><p class="small cmd-green mb-0">8 hours</p>
+                    </div></div></div>
+                    <div class="col-md-4"><div class="card h-100 p-2"><div class="card-body">
+                        <h5 class="h6 text-white">> Curso de SQL desde Cero</h5><p class="small cmd-green mb-0">7 hours</p>
+                    </div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-5">
+            <div class="container">
+                <h2 class="display-5 fw-bold mb-5 border-bottom border-success pb-3 d-inline-block text-white">SYS_<span class="cmd-green">EXPERIENCE</span></h2>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="border-start border-success border-2 px-4 py-2 mb-4 ms-2 custom-timeline">
+                            <span class="cmd-green fw-bold">June 2022 - Present</span>
+                            <h3 class="h5 mt-2 text-white">Receptionist <span class="cmd-text">| Hotelatelier</span></h3>
+                            <p class="text-muted">Customer service, reservation management, and administrative support in a high-pressure environment.</p>
+                        </div>
+                        <div class="border-start border-secondary border-2 px-4 py-2 mb-4 ms-2 custom-timeline border-inactive">
+                            <span class="text-secondary fw-bold">April 2022 - June 2022</span>
+                            <h3 class="h5 mt-2 text-white">Waiter <span class="cmd-text">| Moncho's</span></h3>
+                            <p class="text-muted">Protocol management and hospitality services.</p>
+                        </div>
+                        <div class="border-start border-secondary border-2 px-4 py-2 mb-4 ms-2 custom-timeline border-inactive">
+                            <span class="text-secondary fw-bold">Dec 2021 - April 2022</span>
+                            <h3 class="h5 mt-2 text-white">Assistant Waiter <span class="cmd-text">| Pantea Group</span></h3>
+                            <p class="text-muted">Teamwork and efficient service delivery.</p>
+                        </div>
+                        <div class="border-start border-secondary border-2 px-4 py-2 mb-4 ms-2 custom-timeline border-inactive">
+                            <span class="text-secondary fw-bold">Aug 2021 - Nov 2021</span>
+                            <h3 class="h5 mt-2 text-white">Volunteer Tutor <span class="cmd-text">| Escola Vedruna Àngels</span></h3>
+                            <p class="text-muted">Provided academic support and guidance to students. Developed strong communication, patience, and leadership skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-5 mb-5">
+            <div class="container">
+                <div class="card p-lg-5 p-4 rounded-0 border-success shadow-none">
+                    <div class="row g-5 align-items-center">
+                        <div class="col-lg-5">
+                            <h2 class="display-6 fw-bold text-white mb-4">INIT_<span class="cmd-green">COMMS</span></h2>
+                            <p class="cmd-text mb-4">Awaiting incoming connections for Junior Developer or Systems Technician roles. Secure channel open.</p>
+                            <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                                <li class="d-flex align-items-center">
+                                    <span class="cmd-green me-3">> EMAIL:</span>
+                                    <span class="text-white">robsgm30@gmail.com</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="cmd-green me-3">> PHONE:</span>
+                                    <span class="text-white">+34 655 30 16 19</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-lg-7">
+                            <form action="#" class="bg-black p-4 border border-secondary">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label cmd-text small">> INPUT_NAME</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label cmd-text small">> INPUT_EMAIL</label>
+                                        <input type="email" class="form-control" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label cmd-text small">> INPUT_PAYLOAD (Message)</label>
+                                        <textarea class="form-control" rows="5" required></textarea>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-cmd w-100 py-3 fw-bold">EXECUTE_SEND()</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-4 border-top border-secondary text-center">
+        <div class="container">
+            <p class="cmd-text small mb-0">Robin Govina Madamba // 2026 // Barcelona // Root_Access_Granted</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
