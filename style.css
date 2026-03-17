@@ -1,115 +1,165 @@
-:root {
-    --bg-base: #030303; /* Pure dark / Almost Black */
-    --cmd-green: #00ff41; /* Classic Matrix/Hacker green */
-    --cmd-dark-green: #008f11;
-    --cmd-text: #a0a0a0; /* Muted gray text for readability */
+/* ==========================================================================
+   VARIABLES DE COLOR (Corregidas para máxima legibilidad)
+   ========================================================================== */
+   :root {
+    --bg-base: #030303; /* Fondo negro puro */
+    --cmd-green: #33ff33; /* Verde Hacker Brillante */
+    --cmd-dark-green: #008f11; /* Verde para bordes */
+    --cmd-text: #cccccc; /* Gris claro para textos generales */
+    --cmd-muted: #aaaaaa; /* Gris intermedio para reemplazar el oscuro de Bootstrap */
 }
 
-/* Base Styles */
+/* ==========================================================================
+   ESTILOS BASE
+   ========================================================================== */
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* Prevents navbar overlapping sections */
+    scroll-padding-top: 100px;
 }
 
 body {
     background-color: var(--bg-base);
     color: var(--cmd-text);
-    font-family: 'JetBrains Mono', monospace; /* Enforce terminal font everywhere */
+    font-family: 'JetBrains Mono', monospace;
     line-height: 1.6;
 }
 
-/* Hacker Colors */
-.cmd-green { color: var(--cmd-green) !important; text-shadow: 0 0 4px rgba(0, 255, 65, 0.4); }
-.cmd-text { color: var(--cmd-text); }
+/* ==========================================================================
+   SOBREESCRITURA DE BOOTSTRAP (¡Esto arregla las letras invisibles!)
+   ========================================================================== */
+.text-muted { color: var(--cmd-muted) !important; }
+.text-secondary { color: var(--cmd-muted) !important; }
+.text-white { color: #ffffff !important; }
+
+h1, h2, h3, h4, h5, h6 { color: #ffffff; font-weight: 700; margin-top: 0; }
+a { color: var(--cmd-green); text-decoration: none; transition: 0.3s; }
+a:hover { color: #ffffff; text-decoration: underline; }
+
+/* ==========================================================================
+   COLORES HACKER Y BRILLOS
+   ========================================================================== */
+.cmd-green { 
+    color: var(--cmd-green) !important; 
+    text-shadow: 0 0 6px rgba(51, 255, 51, 0.5); 
+    font-weight: bold; 
+}
+.cmd-text { color: var(--cmd-text) !important; }
 .border-success { border-color: var(--cmd-green) !important; }
+.border-secondary { border-color: #333333 !important; }
 
-/* BOOT SCREEN */
+/* ==========================================================================
+   PANTALLA DE CARGA (BOOT SCREEN)
+   ========================================================================== */
 #boot-screen {
-    position: fixed; inset: 0; background: #000; z-index: 10000;
+    position: fixed; inset: 0; background: #000; z-index: 99999;
     padding: 40px; font-family: 'JetBrains Mono', monospace;
-    transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
 }
-.ascii-art { font-size: 10px; margin-bottom: 20px; }
-.boot-line { color: #a0a0a0; font-size: 14px; margin-bottom: 5px; }
+.boot-container { text-align: center; }
+.ascii-art { font-size: 10px; margin-bottom: 20px; color: var(--cmd-green); text-shadow: 0 0 5px var(--cmd-green); }
+.boot-line { color: var(--cmd-green); font-size: 16px; margin-bottom: 5px; }
+.boot-cursor { animation: blinker 1s infinite step-end; color: #fff; font-size: 2rem; }
 
-/* NAVBAR */
+/* ==========================================================================
+   BARRA DE NAVEGACIÓN (NAVBAR)
+   ========================================================================== */
 .terminal-nav {
-    background: rgba(3, 3, 3, 0.9) !important;
+    background: rgba(3, 3, 3, 0.95) !important;
     border-bottom: 1px solid var(--cmd-dark-green);
+    padding: 0.5rem 0;
 }
+.terminal-nav .navbar-brand { font-size: 1.25rem; }
 .nav-links a { transition: color 0.3s; }
-.nav-links a:hover { color: var(--cmd-green) !important; text-shadow: 0 0 5px var(--cmd-green); }
+.navbar-nav .nav-link:hover, .terminal-nav .navbar-brand:hover { 
+    color: #ffffff !important; text-shadow: 0 0 5px #ffffff; 
+}
 
-/* HERO SECTION */
-.hero-section { min-height: 100vh; padding-top: 100px; }
+/* ==========================================================================
+   SECCIÓN HERO Y TERMINAL
+   ========================================================================== */
+.hero-section { min-height: 100vh; padding-top: 100px; display: flex; align-items: center; }
 .blink-icon { animation: blinker 1.5s linear infinite; }
 @keyframes blinker { 50% { opacity: 0; } }
 
-/* TERMINAL WINDOW */
 .terminal-window {
     border: 1px solid var(--cmd-dark-green);
     background-color: #050505;
+    border-radius: 2px;
 }
 .terminal-header {
     background-color: #0a0a0a;
     border-bottom: 1px solid var(--cmd-dark-green);
+    padding: 10px; color: #fff; text-align: center; font-size: 0.8rem;
 }
+.terminal-body { padding: 20px; }
 
-/* CARDS (Bento Grid) */
+/* ==========================================================================
+   TARJETAS (Cards de Skills y Educación)
+   ========================================================================== */
 .card {
     background-color: #050505 !important;
     border: 1px solid var(--cmd-dark-green) !important;
-    border-radius: 0 !important; /* Square borders like terminal */
+    border-radius: 2px !important; 
     transition: all 0.2s ease-in-out;
 }
 .card:hover {
     border-color: var(--cmd-green) !important;
-    box-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
+    box-shadow: 0 0 8px rgba(51, 255, 51, 0.2);
+    transform: translateY(-3px);
 }
 
-/* TIMELINE */
+/* ==========================================================================
+   LÍNEA DE TIEMPO (Experiencia)
+   ========================================================================== */
 .custom-timeline { position: relative; border-radius: 0; }
 .custom-timeline::before {
     content: ''; position: absolute; left: -10px; top: 0;
-    width: 18px; height: 18px; border-radius: 0; /* Square bullets */
+    width: 18px; height: 18px; border-radius: 0;
     background-color: var(--bg-base); border: 2px solid var(--cmd-green);
 }
-.border-inactive::before { border-color: #6c757d; }
+.border-inactive::before { border-color: var(--cmd-muted); } /* Arregla el cuadrado oscuro de trabajos antiguos */
 
-/* BUTTONS */
+/* ==========================================================================
+   BOTONES
+   ========================================================================== */
 .btn-cmd {
-    background-color: var(--cmd-green);
-    color: #000;
-    border: none;
-    border-radius: 0;
-    font-weight: bold;
-    font-family: 'JetBrains Mono', monospace;
+    background-color: var(--cmd-green); color: #000; border: none;
+    border-radius: 2px; font-weight: bold; font-family: 'JetBrains Mono', monospace; transition: 0.3s;
 }
-.btn-cmd:hover { background-color: white; color: black; box-shadow: 0 0 10px var(--cmd-green); }
+.btn-cmd:hover { background-color: #fff; color: #000; box-shadow: 0 0 10px var(--cmd-green); }
 
 .btn-cmd-outline {
-    background-color: transparent;
-    color: var(--cmd-green);
-    border: 1px solid var(--cmd-green);
-    border-radius: 0;
+    background-color: transparent; color: var(--cmd-green);
+    border: 1px solid var(--cmd-green); border-radius: 2px; transition: 0.3s;
 }
-.btn-cmd-outline:hover { background-color: var(--cmd-green); color: black; }
+.btn-cmd-outline:hover { background-color: var(--cmd-green); color: #000; }
 
-/* FORM OVERRIDES */
+/* ==========================================================================
+   FORMULARIO
+   ========================================================================== */
 .form-control {
-    background-color: #000;
-    color: var(--cmd-green);
-    border: 1px solid var(--cmd-dark-green);
-    border-radius: 0;
+    background-color: #000; color: var(--cmd-green);
+    border: 1px solid var(--cmd-dark-green); border-radius: 2px;
     font-family: 'JetBrains Mono', monospace;
 }
 .form-control:focus {
-    background-color: #050505;
-    color: var(--cmd-green);
-    border-color: var(--cmd-green);
-    box-shadow: none;
+    background-color: #050505; color: var(--cmd-green);
+    border-color: var(--cmd-green); box-shadow: 0 0 5px rgba(51, 255, 51, 0.3); outline: none;
 }
+.form-control::placeholder { color: #555555; }
 
-/* REVEAL ON SCROLL */
+/* ==========================================================================
+   ANIMACIONES SCROLL
+   ========================================================================== */
 .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+    background-color: #000;
+    border-top: 1px solid var(--cmd-dark-green);
+    padding: 20px 0;
+}
