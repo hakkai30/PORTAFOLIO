@@ -218,22 +218,25 @@
                         </div>
                         
                         <div class="col-lg-7">
-                            <form action="#" class="bg-black p-4 border border-secondary">
+                            <form id="contact-form" action="https://formsubmit.co/robsgm30@gmail.com" method="POST" class="bg-black p-4 border border-secondary">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_subject" value="Nuevo mensaje desde Robin_OS Portfolio">
+                                
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <label class="form-label cmd-text small">> INPUT_NAME</label>
-                                        <input type="text" class="form-control" required>
+                                        <input type="text" name="name" class="form-control" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label class="form-label cmd-text small">> INPUT_EMAIL</label>
-                                        <input type="email" class="form-control" required>
+                                        <input type="email" name="email" class="form-control" required>
                                     </div>
                                     <div class="col-12">
                                         <label class="form-label cmd-text small">> INPUT_PAYLOAD (Message)</label>
-                                        <textarea class="form-control" rows="5" required></textarea>
+                                        <textarea name="message" class="form-control" rows="5" required></textarea>
                                     </div>
                                     <div class="col-12 mt-4">
-                                        <button type="submit" class="btn btn-cmd w-100 py-3 fw-bold">EXECUTE_SEND()</button>
+                                        <button type="submit" id="submit-btn" class="btn btn-cmd w-100 py-3 fw-bold">EXECUTE_SEND()</button>
                                     </div>
                                 </div>
                             </form>

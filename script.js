@@ -91,4 +91,60 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // --- 4. FORMULARIO DE CONTACTO (AJAX Fetch) ---
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Evitamos que la página se recargue
+
+            // Guardamos el texto original y cambiamos a estado de "Cargando"
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = "EJECUTANDO_ENVIO... [ESPERE]";
+            submitBtn.disabled = true; // Bloqueamos el botón para evitar doble envío
+
+            // Recogemos los datos del formulario
+            const formData = new FormData(contactForm);
+
+            // Enviamos los datos a FormSubmit usando Fetch
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json' // Pedimos respuesta en JSON para no cambiar de página
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Éxito: Cambiamos el mensaje y limpiamos el formulario
+                    submitBtn.textContent = "PAYLOAD_ENVIADO [OK]";
+                    contactForm.reset(); 
+                    
+                    // Restauramos el botón después de 4 segundos
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }, 4000);
+                } else {
+                    throw new Error('Error de red al enviar el formulario.');
+                }
+            })
+            .catch(error => {
+                // Error: Avisamos al usuario
+                console.error('Error:', error);
+                submitBtn.textContent = "ERROR_DE_CONEXION [RETRY]";
+                submitBtn.style.backgroundColor = "red";
+                submitBtn.style.color = "white";
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.backgroundColor = ""; // Restauramos el color original
+                    submitBtn.style.color = "";
+                }, 4000);
+            });
+        });
+    }
 });
